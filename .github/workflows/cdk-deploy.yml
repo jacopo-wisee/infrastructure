@@ -9,6 +9,7 @@ jobs:
   deploy:
     uses: jacopo-wisee/common-actions/.github/workflows/cdk-deploy.yml@main
     with:
+      aws-region: us-east-1
+    secrets: # For passing the secrets use secrets parameter instead of with
       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      aws-region: us-east-1
