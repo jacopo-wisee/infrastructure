@@ -3,6 +3,8 @@ import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { InfrastructureStack } from '../lib/infrastructure-stack';
 
+const stage = process.env.PROJECT_STAGE ? `${process.env.PROJECT_STAGE}` : "";
+
 const app = new cdk.App();
 new InfrastructureStack(app, 'InfrastructureStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
@@ -18,4 +20,5 @@ new InfrastructureStack(app, 'InfrastructureStack', {
   env: { account: '892964947378', region: 'eu-west-1' },
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
+  stackName: `${stage}-InfrastructureStack`,
 });
